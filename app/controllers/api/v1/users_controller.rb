@@ -1,6 +1,5 @@
-module Api
-    module V1
-        class UsersController < ApplicationController
+
+class API::V1::UsersController < ApplicationController
 
             def index
               @users = User.all
@@ -20,7 +19,7 @@ module Api
               if @user.save
             	  render json: @user.to_json
               else
-                render json: { errord 'нихуя не работает'}
+                render json: ( errord 'нихуя не работает')
               end
             end
 
@@ -31,7 +30,7 @@ module Api
               if @user.update(user_params)
                 render json: @user
               else
-                render json: { errord 'нихуя не работает'}
+                render json: ( errord 'нихуя не работает')
               end
             end
 
@@ -56,5 +55,4 @@ module Api
             
 
         end
-    end
-end
+   
