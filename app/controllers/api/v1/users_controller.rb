@@ -1,59 +1,50 @@
+module API
+	module V1
+	class UsersController < ApplicationController
+						def index
+							@users = User.all
+							render json: @users
+						end
 
-class API::V1::UsersController < ApplicationController
+						def show
+							@user = User.find_by( id: params[ :id ] )
+							return render json: { errors: 'user not found' } unless @user
 
-            def index
-              @users = User.all
-              render json: @users
-            end
+							render json: @user
+						end
 
+						def create
+							@user = User.new( user_params )
 
-            def show
-              @user = User.find_by(id: params[:id])
-              return render json: { errors: 'user not found'} unless @user
-              render json: @user
-            end
+							if @user.save
+								render json: { succes: true, user: @user }
+							else
+								render json: { error: @user.errors }, status: 422
+							end
+						end
 
+						def update
+							@user = User.find( params[ :id ] )
 
-            def create
-              @user = User.new(user_params)
+							if @user.update( user_params )
+								render json: @user
+							else
+								render json: { error: 'Unable to create User' }
+							end
+						end
 
-              if @user.save
-            	  render json: { succes: true, user: @user }
-              else
-                render json: { error: @user.errors }, status: 422
-              end
-            end
+						def destroy
+							@user = User.find( params[ :id ] )
+							@article.destroy
 
+							render json: @user
+						end
 
-            def update
-              @user = User.find(params[:id])
+						private
 
-              if @user.update(user_params)
-                render json: @user
-              else
-                render json: { error: 'Unable to create User' }
-              end
-            end
-
-
-            def destroy
-              @user = User.find(params[:id])
-              @article.destroy
-
-              render json: @user
-            end	
-
-
-            private
- 
-            def user_params
-            params.permit(:name, :email, :password, :password_confirmation)
-            end
-
-
-
-
-            
-
-        end
-   
+						def user_params
+						params.permit( :name, :email, :password, :password_confirmation )
+						end
+	end
+	end
+end

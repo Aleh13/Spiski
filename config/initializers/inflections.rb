@@ -1,14 +1,6 @@
-
-ActiveSupport::Inflector.inflections(:en) do |inflect|
-   inflect.acronym 'API'
+ActiveSupport::Inflector.inflections( :en ) do | inflect |
+	inflect.acronym 'API'
 end
-
-
-
-
-
-
-
 
 # Be sure to restart your server when you modify this file.
 

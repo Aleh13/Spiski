@@ -1,7 +1,7 @@
 10.times do
-  User.create(name: Faker::Name.name, 
-  	          email: Faker::Internet.email,
-  	          password_digest: Faker::Internet.password)
+	User.create( name: Faker::Name.name,
+	  email: Faker::Internet.email,
+		password_digest: Faker::Internet.password )
 end
 
-#rails db:seed
+# rails db:seed
