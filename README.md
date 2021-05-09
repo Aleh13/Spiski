@@ -41,3 +41,7 @@ rspec
 factory_bot
 jwt
 bcrypt
+
+
+
+ветка для pull requests - fix
