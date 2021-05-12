@@ -42,4 +42,15 @@ complexity ***
 rspec
 factory_bot
 jwt
+<<<<<<< HEAD
 bcrypt
+=======
+
+bcrypt
+
+
+
+
+
+ветка для pull requests - fix
+>>>>>>> c1da9ea... Добавлены валидации
