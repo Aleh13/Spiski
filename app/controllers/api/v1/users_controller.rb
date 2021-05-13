@@ -17,7 +17,7 @@ class API::V1::UsersController < ApplicationController
               @user = User.new(user_params)
 
               if @user.save
-            	  render json: @user.to_json
+            	  render json: @user
               else
                 render json: ( errord 'нихуя не работает')
               end
