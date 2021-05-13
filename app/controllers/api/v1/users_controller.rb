@@ -17,9 +17,9 @@ class API::V1::UsersController < ApplicationController
               @user = User.new(user_params)
 
               if @user.save
-            	  render json: @user
+            	  render json: { succes: true, user: @user }
               else
-                render json: ( errord 'нихуя не работает')
+                render json: { error: @user.errors }, status: 422
               end
             end
 
@@ -30,7 +30,7 @@ class API::V1::UsersController < ApplicationController
               if @user.update(user_params)
                 render json: @user
               else
-                render json: ( errord 'нихуя не работает')
+                render json: { error: 'Unable to create User' }
               end
             end
 
