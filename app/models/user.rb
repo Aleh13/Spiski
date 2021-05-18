@@ -7,3 +7,5 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
   validates_format_of :email, :with => /@/
   validates :email, uniqueness: true
+
+end
